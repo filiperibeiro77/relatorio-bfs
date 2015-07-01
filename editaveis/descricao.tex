@@ -1,2 +1,32 @@
-\chapter*[Descrição do Algorítmo]{Descrição do Algorítmo}
-\addcontentsline{toc}{chapter}{Descrição do Algorítmo}
+\chapter*[Descrições]{Descrições}
+\addcontentsline{toc}{chapter}{Descrições}
+
+Este capítulo têm como objetivos descrever o algorítmo e os dados que foram utilizados para resolver o problema.
+
+\section{Descrição do Algorítmo}
+
+
+\section{Descrição dos Dados Utilizados}
+
+Os dados a serem tratados, foram inseridos em arquivos de texto, gerando então um banco de dados. Cada 
+capital, recebeu dois arquivos, sendo que os primeiros possuem a nomenclatura padrão ``\textit{sigla.txt}'' onde ``sigla", é a sigla do estado.
+e recebem: 
+
+\begin{itemize}
+ 	\item Nome da capital, onde nomes compostos são separados por letras maiúsculas (padrão \textit{CamelCase});
+    \item Código identificador;
+	\item Número de capitais que possuem rota direta. 
+\end{itemize}
+
+Cada campo, é sepadado por um caracter barra vertical (|). 
+
+Os segundos arquivos, possuem a nomenclatura ``\textit{sigla\underline{\hspace{.1in}}paths.txt}'' e eles recebem os campos:
+
+\begin{itemize}
+	\item Código da rota, que na verdade é a junção do código da capital de partida com o código da capital de destino;
+	\item Nome da capital de saída (padrão \textit{CamelCase});
+	\item Nome da capital de destino (padrão \textit{CamelCase});
+	\item Quantidade de kilômetros do percurso.
+\end{itemize}
+
+Como no primeiro arquivo, cada campo, é sepadado por um caracter barra vertical (|). Tais dados foram retiradas do site do Departamento Nacional de Infraestrutura de Transportes \cite{DNIT}
