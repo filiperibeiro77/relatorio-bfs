@@ -38,16 +38,22 @@ O bloco de código do algoritmo se resume a:
 
 Sendo assim, é possível inferir que as cidades nada mais são que nós do grafo, os caminhos possíveis se tratam de simples arestas do grafo, e o \textit{Way} seria o conjunto dessas arestas.
 
+\section{Matriz de Adjacência - Não Utilizada}
+Uma abordagem comum nos problemas que envolvem grafos é o da utilização da Matriz de Adjacência. É interessante pois, por conta do índice, se você sabe qual elemento deseja visitar, não é necessário percorrer nada: têm-se acesso direto ao dado.
+
+Contudo, esta abordagem, como tudo na vida, apresenta pontos negativos. O principal é do mal uso do espaço disponível. Para ilustrar: Imagine o mesmo problema solucionado pelo grupo, mas, ao invés das 27 capitais, tendo-se 100000 municípios. Mas, independente do número de nós ter crescido muito, a média de caminhos possíveis por nós ainda continua sendo de 3 a 4. Isso significa que num vetor de 100000 espaços, 99995 não estão sendo utilizados (e isso é feito 100000 vezes). Se fosse utilizado uma abordagem de armazenamento de elo de grafo, como utilizado pelo grupo, só seria necessário armazenar os 100000 nós, o que já seria feito de qualquer jeito.
+
+Dessa forma, é possível notar que a escolha da Matriz de Adjacência é interessante pelo acesso fácil ao dado, mas, a medida que os dados escalam (sendo assim uma grande massa de dados), o desperdício de recursos fica evidente.
 
 \section{Descrição dos Dados Utilizados}
 
-Os dados a serem tratados foram inseridos em arquivos de texto gerando então um banco de dados. Cada
-capital recebeu dois arquivos sendo que o primeiro possue a nomenclatura padrão ``\textit{sigla.txt}",onde ``sigla" é a sigla do estado. Cada arquivo recebe:
+Os dados a serem tratados foram inseridos em arquivos de texto gerando então uma espécie de banco de dados. Cada
+capital recebeu dois arquivos sendo que o primeiro possui a nomenclatura padrão ``\textit{sigla.txt}",onde ``sigla" é a sigla do estado. Cada arquivo recebe:
 
 \begin{itemize}
- 	\item Nome da capital, onde nomes compostos são separados por letras maiúsculas (padrão \textit{CamelCase});
-    \item Código identificador;
-	\item Número de capitais que possuem rota direta.
+ 	\item Nome da capital, onde nomes compostos são separados por letras maiúsculas (padrão \textit{Capitalize});
+  \item Código identificador;
+	\item Número de fronteiras.
 \end{itemize}
 
 Cada campo é separado por um caracter barra vertical (|).
@@ -56,9 +62,25 @@ O segundo arquivo possue a nomenclatura ``\textit{sigla\underline{\hspace{.1in}}
 
 \begin{itemize}
 	\item Código da rota, que na verdade é a junção do código da capital de partida com o código da capital de destino;
-	\item Nome da capital de saída (padrão \textit{CamelCase});
-	\item Nome da capital de destino (padrão \textit{CamelCase});
+	\item Nome da capital de saída (padrão \textit{Capitalize});
+	\item Nome da capital de destino (padrão \textit{Capitalize});
 	\item Quantidade de kilômetros do percurso.
 \end{itemize}
 
-Como no primeiro arquivo, cada campo é sepadado por um caracter barra vertical (|). Tais dados foram retiradas do site do Departamento Nacional de Infraestrutura de Transportes \cite{DNIT}.
+Como no primeiro arquivo, cada campo é separado por um caracter barra vertical (|). Tais dados foram retiradas do site do Departamento Nacional de Infraestrutura de Transportes \cite{DNIT}.
+
+\section{Modelagem - Orientação a Objetos}
+A seguir, será dado um \textit{overview} a respeito de como as estruturas de dados foram tratadas no trabalho do ponto de vista do paradigma de Orientação a Objetos:
+\begin{description}
+  \item [Way] É um conjunto de \textbf{Paths}. Se trata de uma classe, que tem relação do tipo \textit{n para 1} com a classe \textbf{Paths}. Além disso, tem associação com a classe \textbf{City}, onde no \textit{Way} são armazenados a cidade Origem, a cidade Destino, o primeiro \textit{Path}, o ultimo \textit{Path}, a quantidade de \textit{Paths} e o tamanho da distância. É uma abstração da estrutura de dados Lista.
+
+  \item [Path] É uma aresta do grafo, ou a distância entre uma cidade X e uma cidade Y que faz fronteira com X. Armazena uma cidade Origem, uma cidade Destino, uma distância entre as duas e um nome.
+
+  \item [PriorityQueue] Fila de prioridades, armazena um conjunto de \textit{Ways} (relação \textit{n para 1}). Tem os atributos da cabeça do conjunto de \textit{Ways}, a calda, o total de \textit{Ways}, e uma variável extra chamada de \textbf{found}, onde é armazenado o melhor \textit{Way} até um dado momento. É uma abstração da estrutura de dados Fila.
+
+  \item [Graph] Como dito, armazena todo o conjunto de cidades. No construtor dessa classe é feito o \textit{fetch} dos arquivos \textit{.txt}, onde são carregadas as cidades disponíveis.
+
+  \item [City] O nó do grafo, tem os atributos nome, \textit{visited}, o primeiro \textit{Path} possível dessa cidade (ou seja, a primeira cidade com que ela faz fronteira), o ultimo \textit{Path} possível, o total de \textit{Paths} disponíveis, e um código. É uma abstração da estrutura de dados Lista.
+\end{description}
+
+\section{Relatório de Execução do Algoritmo}
