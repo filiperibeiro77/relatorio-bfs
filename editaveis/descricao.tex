@@ -5,6 +5,17 @@ Este capítulo têm como objetivos descrever o algorítmo e os dados que foram u
 
 \section{Descrição do Algorítmo}
 
+O algorítmo BFS foi construído na estrutura de um grafo, onde cada capital brasileira corresponde a um nó. 
+Com isso em mente, o algorítmo funciona a partir da entrada de um nó (cidade), que é definida como ponto de 
+partida e de um segundo nó que é o destino onde se deseja chegar. A partir disso, começa-se a analisar 
+todos os pontos que possuem rota direta com o ponto atual, e opta-se por escolher o menor deles como 
+caminho. Essa lógica se repete até o momento em que se chega ao ponto desejado. Porém nem sempre o caminho 
+é composto apenas pelas menores distâncias, por isso, há uma análise em paralelo dos outros nós, e o melhor 
+caminho é escolhido a partir da menor soma total de distância dos caminhos que se obteve.
+
+Algo a ser citado, é que os nós nunca podem ser revisitados, pois caso isso aconteça, o algorítmo entra em 
+um \textit{loop} infinito, uma vez que sempre em algum ponto, a menor distância será um nó já visitado. 
+Para esse tratamento, usou-se um atributo que faz essa verificação. 
 
 \section{Descrição dos Dados Utilizados}
 
