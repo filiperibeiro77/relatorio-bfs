@@ -1,14 +1,10 @@
 \chapter*[Introdução]{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
 
-Tal documento, consiste no relatório técnico da implementação do algorítmo de busca \textit{Best-First
-Search}. Este algorítmo é muito utilizado quando se fala a respeito de inteligência artficial, pois com o 
-mesmo pode-se usar conceitos avançados de estrutaras de dados, orientação a objetos, \textit{threads} 
-entre outros. O algorítmo \textit{Best-First search}, consiste basicamente em dizer qual o possível melhor 
-(menor) caminho entre dois pontos. O usuário insere o ponto inicial e o ponto que se deseja ir, com isso 
-em mente o algorítmo analisa todos os possíveis caminhos e apresenta o melhor. Há variações desse 
-algoritmo que permite visualizar o caminho sendo percorrido na tela.
+Independente do ramo (redes, \textit{machine learning}, inteligência artificial, detecção de padrões, labirintos, etc), um dos problemas mais comuns no contexto de grafos é em relação a localização de melhores caminhos para determinados problemas. Um exemplo comum seria o da necessidade de um GPS: o usuário se encontra em determinado lugar, que chamaremos de Origem, e deseja chegar em outro lugar, que chamaremos de Destino. O usuário deseja que o GPS seja capaz de fornecer o melhor caminho possível, levando em consideração as limitações que o próprio usuário teria a respeito do percurso (por exemplo, somente deveria ser levado em conta caminhos terrestres e não aéreos, por motivos lógicos).
 
-O trabalho proposto para ser executado na disciplina consistia na implementação do mesmo, tendo como 
-contexto as capitais brasileiras. Utilizando-se de dados abertos disponibilizados pelo governo, observou-se 
-os caminhos que cada capital faz ligação, ou seja, quais cidades possuem uma rota direta com outras capitais. A partir disso, a solução deve permitir ao usuário que o mesmo cite uma capital qualquer, e insira o destino final do trajeto, com isso espera-se que sejam apresentadas as cidades que serão percorridas para realizar esse menor trajeto.
+Deste tipo de problema surge a necessidade de utilização de um algoritmo que seja capaz de fornecer a solução do melhor caminho. Entre os vários disponíveis (Dijkstra, Tremaux, etc), existe o BFS - Best First Search, que foi implementado e será explicado durante este relatório. No caso, o algoritmo deveria ser aplicado num contexto de capitais brasileiras, levando em consideração somente rotas rodoviárias (dados cedidos pelo DNIT).
+
+No capítulo a seguir será dada uma explanação a respeito do algoritmo, e, no capítulo seguinte, as principais dificuldades encontradas serão levantadas. Uma observação é que, como será mostrado, o grupo utilizou o paradigma de Orientação a Objetos para apoiar o desenvolvimento do algoritmo. A escolha mostrou-se interessante por vários motivos, e será detalhada durante o relatório.
+
+O grupo teve um enorme aprendizado no que tange Estruturas de Dados, Metaprogramação, Orientação a Objetos, Técnicas de Programação entre outros assuntos relativos a programação durante o desenvolvimento do algoritmo, e tentará passar essa ideia.
