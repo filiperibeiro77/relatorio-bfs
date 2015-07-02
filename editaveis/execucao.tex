@@ -1,0 +1,64 @@
+\chapter[Execução - BFS]{Execução - BFS}
+
+Este capítulo têm como objetivo relatar o processo de desenvolvimento do algoritmo, trazendo a abordagem utilizada pelo grupo, as principais técnicas, e uma descrição do código como um todo.
+
+\section{Descrição do Algorítmo}
+
+Contextualizando inicialmente, têm-se duas filas: \textbf{Prioridades} e \textbf{Soluções}. Antes de iniciar o algoritmo, é feita uma preparação, onde define-se o atributo \textit{visited} da cidade origem como \textit{true}, e é inserido na fila \textbf{Prioridades} os caminhos possíveis da origem (ou seja, as fronteiras da origem). O algoritmo inicia-se com a premissa: enquanto \textbf{Prioridades} não estiver vazia, execute o bloco de código do algoritmo.
+
+O bloco de código do algoritmo se resume a:
+\begin{enumerate}
+\item Pega-se o primeiro elemento de \textbf{Prioridades}, que será chamado de \textbf{aux} e é do tipo \textbf{Way}.
+\item Pega-se o destino final de \textbf{Way}, irá ser chamado de \textbf{destination\textunderscore shortcut}.
+\item Pega-se o caminho mais curto do \textbf{destination\textunderscore shortcut}. Irá ser chamado de \textbf{store\textunderscore path}, e é o candidato a ser expandido.
+\item Os caminhos possíveis de \textbf{destination\textunderscore shortcut} precisam ser ordenados, para que o algoritmo já expanda na ordem do melhor caminho para o pior.
+\item Será feito um \textit{loop interno} com \textit{n} iterações, esse \textit{n} seria a quantidade de fronteiras que \textbf{destination\textunderscore shortcut} dispõe.
+
+  Loop interno:
+  \begin{enumerate}
+    \item Dentro do \textit{loop}, é visto inicialmente se o caminho proposto (\textbf{store\textunderscore path}) é uma solução para o problema. Se for, é feita uma cópia de \textbf{aux}, dentro dessa cópia é inserido o caminho dandidato, e, finalmente, \textbf{aux} é inserido em \textbf{Soluções}. Não é necessário mais continuar no \textit{loop} interno, pois uma solução já foi encontrada e todas as outras seguintes para esse destino serão inferiores.
+    \item Caso não seja uma solução, é visto se o destino do candidato (\textbf{store\textunderscore path}) já foi visitado (apresenta \textit{visited} como \textit{true}). Se já tiver sido visitado, ignoramos esse candidato
+    \item Caso o candidato não tenha sido visitado, finalmente o utilizamos. Inicialmente, é feita uma cópia de \textbf{aux}, por conta do problema da Persistência de Dados. Armazenamos essa cópia de \textbf{aux} nele mesmo.
+    \item Dentro da nova cópia de \textbf{aux}, inserimos ao final o candidato (é dado \textit{push}).
+    \item É \textit{setado} o \textit{visited} do destino do candidato como \textit{true}.
+    \item Finalmente, \textbf{aux} é inserido na fila \textbf{Prioridades}.
+    \item O caminho candidato agora deixa de ser \textbf{store\textunderscore path}, para ser o caminho anterior ao \textbf{store\textunderscore path}. Novamente, dizemos que \textbf{aux} é o primeiro elemento de \textbf{Prioridades}.
+  \end{enumerate}
+
+\item É dado \textit{pop} em \textbf{Prioridades}.
+\end{enumerate}
+
+\section{Contextualização}
+\begin{itemize}
+  \item Cidades tem Caminhos Possíveis (\textit{Paths});
+  \item Caminhos Possíveis (\textit{Paths}) tem uma cidade Origem e uma cidade Destino;
+  \item Um \textit{Way} é um conjunto de caminhos possíveis (\textit{Paths});
+  \item Um Grafo contém a lista de Cidades;
+\end{itemize}
+
+Sendo assim, é possível inferir que as cidades nada mais são que nós do grafo, os caminhos possíveis se tratam de simples arestas do grafo, e o \textit{Way} seria o conjunto dessas arestas.
+
+
+\section{Descrição dos Dados Utilizados}
+
+Os dados a serem tratados foram inseridos em arquivos de texto gerando então um banco de dados. Cada
+capital recebeu dois arquivos sendo que o primeiro possue a nomenclatura padrão ``\textit{sigla.txt}",onde ``sigla" é a sigla do estado. Cada arquivo recebe:
+
+\begin{itemize}
+ 	\item Nome da capital, onde nomes compostos são separados por letras maiúsculas (padrão \textit{CamelCase});
+    \item Código identificador;
+	\item Número de capitais que possuem rota direta.
+\end{itemize}
+
+Cada campo é separado por um caracter barra vertical (|).
+
+O segundo arquivo possue a nomenclatura ``\textit{sigla\underline{\hspace{.1in}}paths.txt}'' e eles recebem os campos:
+
+\begin{itemize}
+	\item Código da rota, que na verdade é a junção do código da capital de partida com o código da capital de destino;
+	\item Nome da capital de saída (padrão \textit{CamelCase});
+	\item Nome da capital de destino (padrão \textit{CamelCase});
+	\item Quantidade de kilômetros do percurso.
+\end{itemize}
+
+Como no primeiro arquivo, cada campo é sepadado por um caracter barra vertical (|). Tais dados foram retiradas do site do Departamento Nacional de Infraestrutura de Transportes \cite{DNIT}.
