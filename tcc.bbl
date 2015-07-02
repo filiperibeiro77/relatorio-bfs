@@ -5,4 +5,9 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.2 }
 
+\bibitem[Joyner, Nguyen e Cohen 2011]{bfs001}
+\abntrefinfo{Joyner, Nguyen e Cohen}{JOYNER; NGUYEN; COHEN}{2011}
+{JOYNER, D.; NGUYEN, M. van; COHEN, N. \emph{Algorithmic Graph Theory}.
+[S.l.], 2011.}
+
 \end{thebibliography}

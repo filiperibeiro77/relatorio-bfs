@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.6.12)  1 JUL 2015 14:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.6.12)  2 JUL 2015 20:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1093,30 +1093,33 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]) (./fixos/indiceAutomatico.tex
 (./tcc.toc) [5] [6
 
-]) (./editaveis/introducao.tex) (./editaveis/descricao.tex
+]) (./editaveis/introducao.tex) (./editaveis/dificuldade.tex
 [7
 
 ] [8
 
-]) (./editaveis/dificuldade.tex [9] [10
+]
+File: figuras/imagem1.eps Graphic file (type eps)
+ <figuras/imagem1.eps>
+File: figuras/imagem2.eps Graphic file (type eps)
+ <figuras/imagem2.eps>
+File: figuras/imagem3.eps Graphic file (type eps)
+ <figuras/imagem3.eps>
+File: figuras/imagem4.eps Graphic file (type eps)
 
-]) (./tcc.bbl (./tcc.brf)
+<figuras/imagem4.eps>) (./tcc.bbl (./tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
- [11]
-[12
-
-]
+ [9] [10]
 bibitemlist
-
-LaTeX Warning: Empty `thebibliography' environment on input line 8.
-
 )
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[13]
+[11
+
+]
 \tf@toc=\write6
 \openout6 = `tcc.toc'.
 
@@ -1129,16 +1132,20 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 32.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 32.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 32.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: 9767A7ABE4D61F5563BCDDE1A1F60008;38.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 32.
  ) 
 Here is how much of TeX's memory you used:
- 11910 strings out of 493305
- 173298 string characters out of 6139897
- 300130 words of memory out of 5000000
- 15144 multiletter control sequences out of 15000+600000
- 72587 words of font info for 51 fonts, out of 8000000 for 9000
+ 11933 strings out of 493305
+ 173545 string characters out of 6139897
+ 302130 words of memory out of 5000000
+ 15166 multiletter control sequences out of 15000+600000
+ 75376 words of font info for 52 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 45i,12n,51p,657b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,12n,51p,1033b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (15 pages, 23116 bytes).
+Output written on tcc.dvi (13 pages, 26564 bytes).
